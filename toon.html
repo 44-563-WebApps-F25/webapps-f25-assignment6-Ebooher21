@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cartoon Game Page</title>
+    <h1>Cartoon Game by Elijah Booher</h1>
+</head>
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_password">That's all folks</label>
+    <input type="password" value="Porky Pig" id="form1_password">
+    <br>
+
+    <label for="form1_input">Guess the toon</label>
+    <input type="text" id="form1_input" autofocus>
+    <br>
+
+    <input type="button" value="Check the guess" onclick="checkToon()">
+    <br>
+</form>
+
+<p id="results">Results:<br>Yahoo:0<br>Darn:0<br></p>
+
+<script> 
+    var darn = 0;
+    var yahoo = 0;
+
+    function checkToon() {
+        hidden_toon = document.getElementById("form1_password").value;
+        guess = document.getElementById("form1_input").value;
+        results = document.getElementById("results");
+        if (hidden_toon == guess) {
+            yahoo = yahoo + 1;
+            alert('You got it!');
+        } else {
+            darn = darn + 1;
+            alert('Missed me!');
+        }
+        results.innerHTML = "Results:<br>Yahoo: "+yahoo+"<br>Darn:"+ darn;
+    }
+</script>
+
+</body>
+</html> 
