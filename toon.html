@@ -22,10 +22,15 @@
 </form>
 
 <p id="results">Results:<br>Yahoo:0<br>Darn:0<br></p>
+<br>
+<div class="container">
+    <img id="picture" src="images/elsholtzia.jpg" width="150" height="150" alt="plant" onclick="updatePic()">
+</div>
 
 <script> 
     var darn = 0;
     var yahoo = 0;
+    var usePic = 1;
 
     function checkToon() {
         hidden_toon = document.getElementById("form1_password").value;
@@ -40,6 +45,25 @@
         }
         results.innerHTML = "Results:<br>Yahoo: "+yahoo+"<br>Darn:"+ darn;
     }
+
+    function updatePic() {
+        const picture = document.getElementById("picture");
+        switch(usePic) {
+            case 1:
+                picture.src = "images/hebe.jpg";
+                usePic = 2;
+                break;
+            case 2:
+                picture.src = "images/russelia.jpg";
+                usePic = 3;
+                break;
+            case 3:
+                picture.src = "images/elsholtzia.jpg";
+                usePic = 1;
+                break;
+        }
+    }
+
 </script>
 
 </body>
