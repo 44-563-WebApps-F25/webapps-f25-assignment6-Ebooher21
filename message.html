@@ -7,20 +7,44 @@
 
 <h2>Elijah Booher message cost</h2>
 
-<label for="standardCharge">Enter cost per letter</label>
-<input id="standardCharge" type="number" value="0.50">
+<div>
+    <label for="standardCharge">Enter cost per letter</label>
+    <input id="standardCharge" type="number" value="0.50">
 
-<label for="discountLength">Enter the lenght needed for the discount</label>
-<input id="discountLength" type="number" value="20">
+    <label for="discountLength">Enter the lenght needed for the discount</label>
+    <input id="discountLength" type="number" value="20">
 
-<label for="discountCharge">Enter the discount rate</label>
-<input id="discountCharge" type="number" value="0.25">
+    <label for="discountCharge">Enter the discount rate</label>
+    <input id="discountCharge" type="number" value="0.25">
 
-<input type="button" value="Show total" onclick="amounts()">
+    <input type="button" value="Show total" onclick="amounts()">
 
-<p id="result">Totals</p>
+    <p id="result">Totals</p>
+</div>
+
+<div>
+    <form>
+        <label for="product">Product</label>
+        <input id="product" type="radio" value="times" checked = false onclick="chooseOp()">
+        <br>
+        <label for="sum">Sum</label>
+        <input id="sum" type="radio" value="add" checked = false onclick="chooseOp()">
+        <br>
+        <label for="mod">mod</label>
+        <input id="mod" type="radio" value="mod" checked = false onclick="chooseOp()">
+
+        <p id="total">Result</p>
+    </form>
+</div>
 
 <script> 
+    document.addEventListener('DOMContentLoaded', function() {
+        const radios = document.querySelectorAll('input[type="radio"]')
+        radios.forEach(function(radio) {
+            radio.checked = false
+        })
+    })
+
     function amounts() {
         pricePerLetter = parseFloat(document.getElementById("standardCharge").value)
         discountPosition = parseInt(document.getElementById("discountLength").value)
@@ -34,6 +58,18 @@
             }
         }
         document.getElementById("result").innerHTML = "Totals are:"+totalCosts
+    }
+
+    function chooseOp() {
+        price = parseFloat(document.getElementById("standardCharge").value)
+        breakAt = parseInt(document.getElementById("discountLength").value)
+        if (document.getElementById("product").checked == true) {
+            document.getElementById("total").innerHTML = breakAt+" x "+price+" is "+parseFloat(breakAt * price)
+        } if (document.getElementById("sum").checked == true) {
+            document.getElementById("total").innerHTML = breakAt+" + "+price+" is "+parseFloat(breakAt + price)
+        } if (document.getElementById("mod").checked == true) {
+            document.getElementById("total").innerHTML = breakAt+" % "+price+" is "+parseFloat(breakAt % price)
+        }
     }
 </script>
 
