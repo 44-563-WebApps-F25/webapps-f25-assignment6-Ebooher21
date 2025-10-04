@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Message</title>
+</head>
+<body>
+
+<h2>Elijah Booher message cost</h2>
+
+<label for="standardCharge">Enter cost per letter</label>
+<input id="standardCharge" type="number" value="0.50">
+
+<label for="discountLength">Enter the lenght needed for the discount</label>
+<input id="discountLength" type="number" value="20">
+
+<label for="discountCharge">Enter the discount rate</label>
+<input id="discountCharge" type="number" value="0.25">
+
+<input type="button" value="Show total" onclick="amounts()">
+
+<p id="result">Totals</p>
+
+<script> 
+    function amounts() {
+        pricePerLetter = parseFloat(document.getElementById("standardCharge").value)
+        discountPosition = parseInt(document.getElementById("discountLength").value)
+        discountCost = parseFloat(document.getElementById("discountCharge").value)
+        let totalCosts = ""
+        for (size = discountPosition-3; size <= discountPosition+3; size ++) {
+            if (size <= discountPosition) {
+                totalCosts += " Length "+size+" costs "+parseFloat(size*pricePerLetter).toFixed(2)+";"
+            } else {
+                totalCosts += " Length "+size+" costs "+parseFloat((discountPosition * pricePerLetter)+(size-discountPosition)*discountCost).toFixed(2)+";"
+            }
+        }
+        document.getElementById("result").innerHTML = "Totals are:"+totalCosts
+    }
+</script>
+
+</body>
+</html> 
