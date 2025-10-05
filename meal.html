@@ -21,6 +21,18 @@
 
 <p id="result">Result</p>
 
+<form>
+    <label for="wine">Enter drink</label>
+    <input id="wine" type="text" value="Wine">
+
+    <label for="starter">Enter starter</label>
+    <input id="starter" type="text" value="starter">
+</form>
+
+<input type="button" value="Update the meal" onclick="updateMeal()">
+
+<p id="result2">new meal</p>
+
 <script> 
     var my_meal = {}
     function choices() {
@@ -31,6 +43,14 @@
         my_meal = {'salad':salad, 'stew':stew, 'chocolate':chocolate}
         console.log(my_meal)
         document.getElementById("result").innerHTML = "Salad: "+my_meal['salad']+"<br>Stew: "+my_meal['stew']+"<br>Chocolate: "+my_meal['chocolate']
+    }
+
+    function updateMeal() {
+        drink = document.getElementById("wine").value
+        starter = document.getElementById("starter").value
+        my_meal['drink'] = drink
+        my_meal['starter'] = starter
+        document.getElementById("result2").innerHTML = "Drink: "+my_meal['drink']+"<br>Starter: "+my_meal['starter']
     }
 </script>
 
