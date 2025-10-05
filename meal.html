@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Check Boxes Page</title>
+ </head>
+<body>
+<h2>Elijah Booher plans a meal</h2>
+
+<form>
+   <label for="cb1">Serve salad</label>
+   <input id="cb1" type="checkbox" value="True">
+
+   <label for="cb2">Make stew</label>
+   <input id="cb2" type="checkbox" value="True">
+
+   <label for="cb3">Chocolate for desert</label>
+   <input id="cb3" type="checkbox" value="False">
+</form>
+
+<input type="button" value="Meal Choices" onclick="choices()">
+
+<p id="result">Result</p>
+
+<script> 
+    var my_meal = {}
+    function choices() {
+        my_meal = {}
+        salad = document.getElementById("cb1").checked
+        stew = document.getElementById("cb2").checked
+        chocolate = document.getElementById("cb3").checked
+        my_meal = {'salad':salad, 'stew':stew, 'chocolate':chocolate}
+        console.log(my_meal)
+        document.getElementById("result").innerHTML = "Salad: "+my_meal['salad']+"<br>Stew: "+my_meal['stew']+"<br>Chocolate: "+my_meal['chocolate']
+    }
+</script>
+
+</body>
+</html> 
