@@ -17,11 +17,10 @@
     <input type="text" id="form1_input" autofocus>
     <br>
 
-    <input type="button" value="Check the guess" onclick="checkToon()">
+    <input id="check" type="button" value="Check the guess" onclick="checkToon()">
     <br>
 </form>
-
-<p id="results">Results:<br>Yahoo:0<br>Darn:0<br></p>
+<div id="results"><br>Results:<br>Yahoo:0<br>Darn:0</div>
 <br>
 <div class="container">
     <img id="picture" src="images/elsholtzia.jpg" width="150" height="150" alt="plant" onclick="updatePic()">
@@ -44,6 +43,9 @@
             alert('Missed me!');
         }
         results.innerHTML = "Results:<br>Yahoo: "+yahoo+"<br>Darn:"+ darn;
+        if (darn >= 10) {
+            document.getElementById("check").setAttribute('onclick','alert("Sorry, too many wrong guesses.")')
+        }
     }
 
     function updatePic() {
