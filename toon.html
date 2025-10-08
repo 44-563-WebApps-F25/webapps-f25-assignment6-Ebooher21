@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="styles.css" >
     <title>Cartoon Game Page</title>
     <h1>Cartoon Game by Elijah Booher</h1>
+    <hr>
 </head>
 <body>
 
 <h2>Getting input</h2>
 
-<form>
-    <label for="form1_password">That's all folks</label>
-    <input type="password" value="Porky Pig" id="form1_password">
+<form class="row align-items-center">
+    <div id="left" class="mb-3">
+        <label for="form1_password" class="form-label">That's all folks</label>
+        <br>
+        <input class="form-control" type="password" value="Porky Pig" id="form1_password" aria-describedby="guessPhrase">
+    </div>
     <br>
-
-    <label for="form1_input">Guess the toon</label>
-    <input type="text" id="form1_input" autofocus>
+    <div id="right" class="mb-3">
+        <label for="form1_input" class="form-label">Guess the toon</label>
+        <br>
+        <input type="text" class="form-control" id="form1_input" autofocus>
+    </div>
     <br>
-
-    <input id="check" type="button" value="Check the guess" onclick="checkToon()">
+    <input id="check" class="btn btn-primary" type="button" value="Check the guess" onclick="checkToon()">
     <br>
 </form>
 <div id="results"><br>Results:<br>Yahoo:0<br>Darn:0</div>
@@ -42,7 +48,7 @@
             darn = darn + 1;
             alert('Missed me!');
         }
-        results.innerHTML = "Results:<br>Yahoo: "+yahoo+"<br>Darn:"+ darn;
+        results.innerHTML = "<br>Results:<br>Yahoo: "+yahoo+"<br>Darn:"+ darn;
         if (darn >= 10) {
             document.getElementById("check").setAttribute('onclick','alert("Sorry, too many wrong guesses.")')
         }
