@@ -2,4 +2,4 @@
 # WebApps-F25-Assignment-6
 Introduction to Java Script and DOM
 
-Hosted at [toon.html](toon.html), [message.html](message.html), & [meal.html](meal.html)
+Hosted at [toon](https://44-563-webapps-f25.github.io/webapps-f25-assignment6-Ebooher21/)
